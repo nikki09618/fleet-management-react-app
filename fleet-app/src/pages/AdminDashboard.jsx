@@ -16,9 +16,27 @@ const AdminDashboard =()=>{
 
         const trimmed=name.trim();
         if(!trimmed){
-            alert("Driver name can")
+            alert("Driver name cannot be empty");
+            return;
         }
-    })
+        setFleets((prev)=>{
+            prev.map((f)=>
+            f.id===id ? {...f, driverName: trimmed}:f
+        )
+        },[]);
+
+        const toggleAvailability=useCallback((id)=>{
+            setFleets((prev)=>
+            f.id===id ? {...f, available:!f.available}:f
+        )
+        },[]);
+
+        const deleteFleet=useCallback((id)=>{
+            if(!window.confirm("Delet this vehicale")) return;
+
+            setFleets((prev)=> prev.filter((f)=> f.id==id));
+        },[]);
+    });
 
     return(
         <div>
