@@ -5,8 +5,11 @@ import './App.css'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import ProtectedRoute from './routes/ProtectedRoute'
 import AdminDashboard from './pages/AdminDashboard'
+import Login from "./pages/Login"
 
 function App() {
+  const [isAuth,setIsAuth] =useState(false);
+  
   return(
     <BrowserRouter>
       <Routes>

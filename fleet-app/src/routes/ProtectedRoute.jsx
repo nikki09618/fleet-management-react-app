@@ -1,7 +1,7 @@
 import { Children } from "react"
 import {Navigate} from "react-router-dom"
 
-const ProtectedRoute=({})=>{
+const ProtectedRoute=({isAuth,Children})=>{
     return isAuth ? Children : <Navigate to ="/login" replace />;
 };
 
